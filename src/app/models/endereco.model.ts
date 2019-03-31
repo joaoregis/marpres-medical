@@ -1,5 +1,6 @@
 export default class Endereco {
   Cep: string;
+  Numero: string;
   Logradouro: string;
   Complemento: string;
   Bairro: string;
@@ -8,6 +9,7 @@ export default class Endereco {
 
   constructor(
     cep: string = "",
+    numero: string = "",
     logradouro: string = "",
     complemento: string = "",
     bairro: string = "",
@@ -21,5 +23,6 @@ export default class Endereco {
     this.Bairro = bairro;
     this.Localidade = localidade;
     this.UF = uf;
+    this.Numero = numero;
   }
 }

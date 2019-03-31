@@ -7,8 +7,6 @@ export default class Consulta {
   Telefone: string;
   Email: string;
   Data: string;
-  Profissional: string;
-  Numero: string;
   Medico: Medico;
   Endereco: Endereco;
 }

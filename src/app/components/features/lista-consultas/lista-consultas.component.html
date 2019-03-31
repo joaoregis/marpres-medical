@@ -1,0 +1,51 @@
+<button style="margin-top: 20px;margin-bottom:20px;" routerLink="/consultas/cadastrar" type="button" class="btn btn-success">
+  <i class="fa fa-plus"></i>
+  Cadastrar
+</button>
+
+<table class="table table-striped table-responsive table_style">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Profissional</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Nº</th>
+      <th scope="col">Logradouro</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let consulta of consultas">
+      <th scope="row">{{ consulta.Id }}</th>
+      <td>{{ consulta.Nome }}</td>
+      <td>{{ consulta.Telefone }}</td>
+      <td>{{ consulta.Email }}</td>
+      <td>{{ consulta.Medico.Nome }}</td>
+      <td>{{ consulta.Endereco.Cep }}</td>
+      <td>{{ consulta.Endereco.Numero }}</td>
+      <td>{{ consulta.Endereco.Logradouro }}</td>
+      <td>
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-info"
+            routerLink="/consultas/editar/{{consulta.Id}}"
+          >
+            <i class="fa fa-pen"></i>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="remove(consulta.Id)"
+          >
+            <i class="fa fa-trash-alt"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

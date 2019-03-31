@@ -11,16 +11,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 //
-import { ListaConsultasComponent } from './components/common/lista-consultas/lista-consultas.component';
+import { ListaConsultasComponent } from './components/features/lista-consultas/lista-consultas.component';
+import { CadastroConsultaComponent } from './components/features/cadastro-consulta/cadastro-consulta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaConsultasComponent
+    ListaConsultasComponent,
+    CadastroConsultaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     ButtonsModule.forRoot()

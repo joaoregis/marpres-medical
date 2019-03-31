@@ -1,23 +1,19 @@
-import { Injectable } from '@angular/core';
-import Consultas from '../mocks/consultas.mock';
-import Consulta from '../models/consulta.model';
-import { MedicoService } from './medico.service';
+import { Injectable } from "@angular/core";
+import Consultas from "../mocks/consultas.mock";
+import Consulta from "../models/consulta.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ConsultaService {
-
-  constructor(
-    private medicoService: MedicoService
-  ) { }
+  constructor() {}
 
   add(consulta: Consulta): void {
+    consulta.Id = Consultas.length + 1;
     Consultas.push(consulta);
   }
 
   remove(id: number): void {
-
     const consulta = Consultas.find((item: Consulta) => {
       return item.Id === id;
     });
@@ -34,14 +30,6 @@ export class ConsultaService {
   }
 
   all(): Consulta[] {
-
-    const cons = [...Consultas];
-
-    cons.forEach(item => {
-      item.Medico =
-        this.medicoService.find(item.Profissional);
-    });
-
-    return cons;
+    return Consultas;
   }
 }

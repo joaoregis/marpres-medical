@@ -1,0 +1,159 @@
+<div style="margin-top: 20px;margin-bottom:50px;">
+  <h1 *ngIf="id == 0"><i class="fa fa-plus" style="margin-right: 10px;"></i>Cadastrando Nova Consulta</h1>
+  <h1 *ngIf="id > 0"><i class="fa fa-pen" style="margin-right: 10px;"></i>Alterando Consulta</h1>
+  <div class="form-group">
+    <label for="name">Nome</label>
+    <input
+      [(ngModel)]="consulta.Nome"
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Nome do Paciente"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Telefone</label>
+    <input
+      [(ngModel)]="consulta.Telefone"
+      type="text"
+      class="form-control"
+      id="phone"
+      placeholder="Telefone do Paciente"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      [(ngModel)]="consulta.Email"
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="E-mail do Paciente"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >Não vamos compartilhar esse e-mail com ninguém.</small
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="date">Data da Consulta</label>
+    <input
+      [(ngModel)]="consulta.Data"
+      type="text"
+      class="form-control"
+      id="date"
+      placeholder="DD/MM/AAAA"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="doctor">Médico</label>
+    <select [(ngModel)]="selectedDoctor" id="doctor" class="form-control">
+      <option value="0">Selecione ...</option>
+      <option *ngFor="let doctor of doctors" value="{{ doctor.Id }}">{{
+        doctor.Nome
+      }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="cep">CEP</label>
+    <input
+      (focusout)="buscarCep()"
+      [(ngModel)]="consulta.Endereco.Cep"
+      type="text"
+      class="form-control"
+      id="cep"
+      placeholder="00000000"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="numero">Número</label>
+    <input
+      [(ngModel)]="consulta.Endereco.Numero"
+      maxlength="8"
+      type="text"
+      class="form-control"
+      id="numero"
+      placeholder="..."
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="complemento">Complemento</label>
+    <input
+      [(ngModel)]="consulta.Endereco.Complemento"
+      type="text"
+      class="form-control"
+      id="complemento"
+      placeholder="..."
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="logradouro">Logradouro</label>
+    <input
+      [(ngModel)]="consulta.Endereco.Logradouro"
+      disabled
+      type="text"
+      class="form-control"
+      id="logradouro"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="bairro">Bairro</label>
+    <input
+      [(ngModel)]="consulta.Endereco.Bairro"
+      disabled
+      type="text"
+      class="form-control"
+      id="bairro"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="localidade">Localidade</label>
+    <input
+      [(ngModel)]="consulta.Endereco.Localidade"
+      disabled
+      type="text"
+      class="form-control"
+      id="localidade"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="uf">UF</label>
+    <input
+      [(ngModel)]="consulta.Endereco.UF"
+      disabled
+      type="text"
+      class="form-control"
+      id="uf"
+    />
+  </div>
+
+  <button
+    *ngIf="this.id == 0"
+    (click)="cadastrar()"
+    type="button"
+    class="btn btn-success"
+  >
+    <i class="fa fa-plus"></i>
+    Salvar
+  </button>
+
+  <button
+    *ngIf="this.id > 0"
+    (click)="editar()"
+    type="button"
+    class="btn btn-success"
+  >
+    <i class="fa fa-pen"></i>
+    Salvar
+  </button>
+</div>

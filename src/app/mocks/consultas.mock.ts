@@ -18,7 +18,7 @@ const consultas: Consulta[] = [
       "9082"
     ),
     Endereco: new Endereco(
-      "37130-776",
+      "37130776",
       "10 A",
       "Rua Joaquim Bernardes da Silva",
       "",
@@ -42,7 +42,7 @@ const consultas: Consulta[] = [
       "9082"
     ),
     Endereco: new Endereco(
-      "37130-776",
+      "37130776",
       "11 A",
       "Rua Joaquim Bernardes da Silva",
       "",
@@ -66,7 +66,7 @@ const consultas: Consulta[] = [
       "9082"
     ),
     Endereco: new Endereco(
-      "37130-776",
+      "37130776",
       "12 A",
       "Rua Joaquim Bernardes da Silva",
       "",
@@ -90,7 +90,7 @@ const consultas: Consulta[] = [
       "9082"
     ),
     Endereco: new Endereco(
-      "37130-776",
+      "37130776",
       "13 A",
       "Rua Joaquim Bernardes da Silva",
       "",

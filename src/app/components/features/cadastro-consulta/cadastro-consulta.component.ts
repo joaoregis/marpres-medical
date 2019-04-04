@@ -14,7 +14,6 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class CadastroConsultaComponent implements OnInit {
   selectedDoctor = 0;
   doctors: Medico[];
-  endereco: Endereco;
   consulta: Consulta;
   id: number;
 
@@ -52,13 +51,11 @@ export class CadastroConsultaComponent implements OnInit {
   }
 
   cadastrar() {
-    const doctor = [...this.doctors]
-      // tslint:disable-next-line: triple-equals
-      .filter(element => element.Id == this.selectedDoctor)
-      .shift();
+    const doctor = this.medicoService.find(this.selectedDoctor);
 
     if (!doctor) {
       alert("Selecione um Médico");
+      return;
     }
 
     this.consulta.Medico = doctor;

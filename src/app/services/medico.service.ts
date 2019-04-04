@@ -9,25 +9,16 @@ export class MedicoService {
 
   constructor() { }
 
-  add(medico: Medico): void {
-    Medicos.push(medico);
-  }
+  find(id: number): Medico {
 
-  remove(id: string): void {
-
-    const medico = Medicos.find((item: Medico) => {
-      return item.Profissional === id;
+    const doctor = Medicos.find((item: Medico) => {
+      // tslint:disable-next-line: triple-equals
+      return item.Id == id;
     });
 
-    const indexMedico = Medicos.indexOf(medico);
+    console.log(doctor)
 
-    Medicos.splice(indexMedico, 1);
-  }
-
-  find(id: string): Medico {
-    return Medicos.find((item: Medico) => {
-      return item.Profissional === id;
-    });
+    return doctor;
   }
 
   all(): Medico[] {

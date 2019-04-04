@@ -91,7 +91,7 @@ export class CadastroConsultaComponent implements OnInit {
       fetch(`https://viacep.com.br/ws/${Cep}/json/`)
         .then(json => json.json())
         .then(response => {
-          this.consulta.Endereco.Cep = response.cep;
+          this.consulta.Endereco.Cep = response.cep.replace("-", "");
           this.consulta.Endereco.Complemento = response.complemento;
           this.consulta.Endereco.Bairro = response.bairro;
           this.consulta.Endereco.Localidade = response.localidade;
